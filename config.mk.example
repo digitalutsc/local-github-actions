@@ -1,0 +1,20 @@
+# Copy to config.mk and edit; the Makefile reads it if present.
+# A value given on the command line (make MODULES="x y") still overrides it.
+
+# reusable_workflows branch, tag or commit to test. After changing it, run
+# `make reusable`; the test targets refuse a checkout that doesn't match.
+REUSABLE_REF = omarhxk-patch-1
+# REUSABLE_REPO = https://github.com/digitalutsc/reusable_workflows.git
+
+# Modules to copy (make modules) and test (make test-act / test-direct), by
+# directory name under web/modules/contrib. Leave empty for every module whose
+# CI calls digitalutsc/reusable_workflows.
+MODULES = facets_year_range citation_select assign_calc
+
+# Replica to copy the modules from (container isle-lite-drupal-$(SITE)-1).
+SITE = stories
+
+# Pass B: Drupal x PHP pairings and how many run at once.
+DRUPAL = 10.6 11.3
+PHP = 8.3 8.4
+JOBS = 4
